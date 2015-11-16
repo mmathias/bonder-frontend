@@ -1,0 +1,47 @@
+<p>Questions</p>
+
+<ul>
+  <li ng-repeat="question in questions">
+
+    <label>Question:</label>
+    <span ng-show="!question.edittingQuestion">{{question.question}}</span>
+    <input type="text" ng-model="question.question" ng-show="question.edittingQuestion"/>
+
+    <br/>
+
+
+    <label>First Option:</label>
+    <span ng-show="!question.edittingQuestion">{{question.firstOption}}</span>
+    <input type="text" ng-model="question.firstOption" ng-show="question.edittingQuestion"/>
+
+    <br/>
+
+
+    <label>Second Option:</label>
+    <span ng-show="!question.edittingQuestion">{{question.secondOption}}</span>
+    <input type="text" ng-model="question.secondOption" ng-show="question.edittingQuestion"/>
+
+    <br/>
+
+    <button ng-click="question.edittingQuestion = true" ng-show="!question.edittingQuestion">EDIT</button>
+    <button ng-click="deleteQuestion(question.id)" ng-show="!question.edittingQuestion">DELETE</button>
+
+    <button ng-click="updateQuestion(question)" ng-show="question.edittingQuestion">CONFIRM</button>
+    <button ng-click="question.edittingQuestion = false" ng-show="question.edittingQuestion">CANCEL</button>
+
+
+  </li>
+
+</ul>
+
+<label>Question:</label>
+<input type="text" ng-model="newQuestion.question">
+</br>
+<label>First Option:</label>
+<input type="text" ng-model="newQuestion.firstOption">
+</br>
+<label>Second Option:</label>
+<input type="text" ng-model="newQuestion.secondOption">
+
+</br>
+<button ng-click="createQuestion(newQuestion)">CREATE QUESTION</button>

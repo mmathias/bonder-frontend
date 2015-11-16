@@ -4,6 +4,7 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.users',
+  'myApp.questions',
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {

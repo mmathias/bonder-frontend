@@ -20,4 +20,18 @@ describe('my app', function() {
     });
 
   });
+
+  describe('questions', function() {
+
+    beforeEach(function() {
+      browser.get('index.html#/questions');
+    });
+
+
+    it('should render questions when user navigates to /questions', function() {
+      expect(element.all(by.css('[ng-view] p')).first().getText()).
+        toMatch(/Questions/);
+    });
+
+  });
 });

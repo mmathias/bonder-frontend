@@ -9,7 +9,6 @@ angular.module('myApp.users', ['ngRoute'])
 
 .controller('UsersController', ['$http', '$scope', function($http, $scope) {
 
-  $scope.edittingUser = false;
   $scope.users = [];
 
   $http.get('https://bonderapi.herokuapp.com/api/users').then(function(response) {
