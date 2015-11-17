@@ -1,34 +1,14 @@
-<p>Users</p>
+<header class="header">
+  <span>Users</span>
+</header>
+
 
 <ul>
   <li ng-repeat="user in users">
-
-    <label>Email:</label>
-    <span>{{user.user_email}}</span>
-
+    <div class="circular-image">
+      <img gravatar-src="user.user_email" gravatar-size="100">
+    </div>
     <br/>
-
-    <label>Password:</label>
-    <span ng-show="!user.edittingUser">{{user.user_password}}</span>
-    <input type="password" ng-model="user.new_password" ng-show="user.edittingUser"/>
-
-    <br/>
-    <button ng-click="user.edittingUser = true" ng-show="!user.edittingUser">EDIT</button>
-    <button ng-click="deleteUser(user.user_email)" ng-show="!user.edittingUser">DELETE</button>
-
-    <button ng-click="updateUser(user)" ng-show="user.edittingUser">CONFIRM</button>
-    <button ng-click="user.edittingUser = false" ng-show="user.edittingUser">CANCEL</button>
-
-
+    <span>{{user.name}}</span>
   </li>
-
 </ul>
-
-    <label>Email:</label>
-    <input type="text" ng-model="newUser.user_email">
-    </br>
-    <label>Password:</label>
-    <input type="password" ng-model="newUser.user_password">
-
-    </br>
-    <button ng-click="createUser(newUser)"> CREATE USER</button>

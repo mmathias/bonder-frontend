@@ -4,9 +4,10 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.users',
+  'myApp.frontpage',
   'myApp.questions',
   'myApp.version'
 ]).
 config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/users'});
+  $routeProvider.otherwise({redirectTo: '/frontpage'});
 }]);

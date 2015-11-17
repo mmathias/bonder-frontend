@@ -1,4 +1,4 @@
-angular.module('myApp.users', ['ngRoute'])
+angular.module('myApp.users', ['ngRoute', 'ui.gravatar'])
 
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/users', {
@@ -10,39 +10,17 @@ angular.module('myApp.users', ['ngRoute'])
 .controller('UsersController', ['$http', '$scope', function($http, $scope) {
 
   $scope.users = [];
+  var API_URL = 'https://bonderapi.herokuapp.com/api';
 
-  $http.get('https://bonderapi.herokuapp.com/api/users').then(function(response) {
+  $http.get(API_URL + '/users').then(function(response) {
     $scope.users = response.data.Users;
-  });
-
-  $scope.updateUser = function(user) {
-    $http.put('https://bonderapi.herokuapp.com/api/users', {email: user.user_email, password: user.new_password})
-    .then(function(response) {
-      user.edittingUser = false;
-    });
-  };
-
-  $scope.deleteUser = function(user_email) {
-    $http.delete('https://bonderapi.herokuapp.com/api/users/' + user_email)
-    .then(function(response) {
-      $scope.users
-      for (var i = 0; i < $scope.users.length; i++) {
-        var user = $scope.users[i];
-        if (user.user_email === user_email) {
-            $scope.users.splice(i, 1);
-            break;
-        }
+    for (var i = 0; i < $scope.users.length; i++) {
+      var user = $scope.users[i];
+      if (user.user_email === localStorage.user_email) {
+          $scope.users.splice(i, 1);
+          break;
       }
-
-    });
-  };
-
-  $scope.createUser = function(newUser) {
-    $http.post('https://bonderapi.herokuapp.com/api/users', {email: newUser.user_email, password: newUser.user_password})
-    .then(function(response){
-      $scope.users.push(newUser);
-    });
-  };
-
+    }
+  });
 }]);
 

@@ -15,26 +15,26 @@
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 </head>
 <body>
-  <ul class="menu">
+<!--   <ul class="menu">
     <li><a href="#/users">users</a></li>
     <li><a href="#/questions">questions</a></li>
-  </ul>
+  </ul> -->
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
-  <div ng-view></div>
-
-  <div>Bonder app: v<span app-version></span></div>
+  <div ng-view style="height: 100%; position: relative;"></div>
 
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-gravatar/build/angular-gravatar.js"></script>
   <script src="app.js"></script>
   <script src="users/users.js"></script>
+  <script src="frontpage/frontpage.js"></script>
   <script src="questions/questions.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
