@@ -1,0 +1,13 @@
+<header class="header">
+  <span>Questions</span>
+</header>
+
+<div ng-repeat="question in questions" class="questions" ng-show="current == question">
+    <span>{{question.question}}</span>
+
+    <div class="options">
+        <div class="option" ng-repeat="option in question.options" ng-click="answer(question.id, option.id)">
+            {{option.option}}
+        </div>
+    </div>
+</div>

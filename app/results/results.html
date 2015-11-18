@@ -1,0 +1,16 @@
+<header class="header">
+  <span>Score</span>
+</header>
+
+<div class="results">
+  <div ng-if="!score">
+    Your friend haven't answer this questions yet.
+    Poke him! =D
+  </div>
+
+  <div ng-if="score">
+    Your score is {{score}} of {{total}}
+  </div>
+</div>
+
+<button class="results-button main-button" ng-click="openQuestions()">Answer some questions about you!</button>

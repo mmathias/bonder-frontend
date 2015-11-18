@@ -2,13 +2,11 @@
   <span>Users</span>
 </header>
 
-
 <ul>
   <li ng-repeat="user in users">
-    <div class="circular-image">
+    <div class="circular-image" ng-click="openChallenge(user)">
       <img gravatar-src="user.user_email" gravatar-size="100">
     </div>
-    <br/>
     <span>{{user.name}}</span>
   </li>
 </ul>

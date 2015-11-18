@@ -7,7 +7,7 @@ angular.module('myApp.users', ['ngRoute', 'ui.gravatar'])
   });
 }])
 
-.controller('UsersController', ['$http', '$scope', function($http, $scope) {
+.controller('UsersController', ['$http', '$scope', '$location', function($http, $scope, $location) {
 
   $scope.users = [];
   var API_URL = 'https://bonderapi.herokuapp.com/api';
@@ -22,5 +22,11 @@ angular.module('myApp.users', ['ngRoute', 'ui.gravatar'])
       }
     }
   });
+
+  $scope.openChallenge = function(user) {
+    localStorage.challenged_user_id = user.user_id;
+    $location.url("/challenge");
+  }
+
 }]);
 
