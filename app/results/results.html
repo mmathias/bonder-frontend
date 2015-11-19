@@ -13,4 +13,5 @@
   </div>
 </div>
 
-<button class="results-button main-button" ng-click="openQuestions()">Answer some questions about you!</button>
+<button class="results-button main-button" ng-show="openQuestionsAboutYou" ng-click="openQuestions()">Answer some questions about you!</button>
+<button class="results-button main-button" ng-show="!openQuestionsAboutYou" ng-click="openUsers()">Check out other users!</button>

@@ -9,7 +9,7 @@ angular.module('myApp.frontpage', ['ngRoute'])
 
 .controller('FrontpageController', ['$http', '$scope', '$location', function($http, $scope, $location) {
 
-  var API_URL = 'https://bonderapi.herokuapp.com/api';
+  var API_URL = 'http://localhost:3000/api';
 
   $scope.createUser = function(newUser) {
     $http.post(API_URL + '/users', {email: newUser.user_email, password: newUser.user_password, name: newUser.name})

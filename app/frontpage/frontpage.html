@@ -1,17 +1,21 @@
+<div class="title">
+  <img src="assets/images/logo2.png" alt="" class="logo">
+</div>
+
 <div class="create-user" class="animate-show" ng-show="register && !login">
     <center>Register</center>
     <input type="text" placeholder="First Name" ng-model="newUser.name"></br>
     <input type="text" placeholder="Email Address" ng-model="newUser.user_email"></br>
     <input type="password" placeholder="Password" ng-model="newUser.user_password"></br>
-    <button class="secondary-button" ng-click="createUser(newUser)">CREATE USER</button>
+    <button class="secondary-button" ng-click="createUser(newUser)">Register</button>
 </div>
 
 <div class="login-user" class="animate-show" ng-show="login && !register">
     <center>Login</center>
     <input type="text" placeholder="Email Address" ng-model="user.user_email"></br>
     <input type="password" placeholder="Password" ng-model="user.user_password"></br>
-    <button class="secondary-button" ng-click="loginUser(user)">LOGIN</button>
+    <button class="secondary-button" ng-click="loginUser(user)">Login</button>
 </div>
 
-<button class="main-button" ng-click="register = true">Register Here</button>
-<button class="main-button login" ng-click="login = true">Log in</button>
+<button class="main-button login" ng-click="login = true">Login</button>
+<button class="main-button" ng-click="register = true">Register</button>

@@ -9,9 +9,10 @@ angular.module('myApp.challenge', ['ngRoute'])
 
 .controller('ChallengeController', ['$http', '$scope', '$q', '$location', function($http, $scope, $q, $location) {
 
-  var API_URL = 'https://bonderapi.herokuapp.com/api', currentIndex = 0;
+  var API_URL = 'http://localhost:3000/api', currentIndex = 0;
 
-  $http.get(API_URL + '/questions').then(function(response) {
+  $http.get(API_URL + '/users/' + localStorage.user_id + '/questions?challenged=' + localStorage.challenged_user_id)
+  .then(function(response) {
     $scope.questions = response.data.Questions || [];
 
     if ($scope.questions.length) {
