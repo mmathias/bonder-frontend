@@ -9,7 +9,7 @@ angular.module('myApp.results', ['ngRoute'])
 
 .controller('ResultsController', ['$http', '$scope', '$location', function($http, $scope, $location) {
 
-  var API_URL = 'http://localhost:3000/api';
+  var API_URL = 'https://bonderapi.herokuapp.com/api';
   $scope.openQuestionsAboutYou = false;
 
   $http.get(API_URL + '/users/' + localStorage.challenged_user_id + '/answers')

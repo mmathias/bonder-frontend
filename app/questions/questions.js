@@ -9,7 +9,7 @@ angular.module('myApp.questions', ['ngRoute'])
 
 .controller('QuestionsController', ['$http', '$scope', function($http, $scope) {
 
-  var API_URL = 'http://localhost:3000/api';
+  var API_URL = 'https://bonderapi.herokuapp.com/api';
 
   $http.get(API_URL + '/questions').then(function(response) {
     $scope.questions = response.data.Questions || [];
