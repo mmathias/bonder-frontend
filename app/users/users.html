@@ -1,12 +1,14 @@
 <header class="header">
+  <span class="left"><a href="#/invitations"><img src="assets/images/invitations.png" alt=""></a></span>
   <span>Users</span>
+  <span class="right"><a href="#/events"><img src="assets/images/events.png" width="48px"></a></span>
 </header>
 
 <ul>
   <li ng-repeat="user in users">
-    <div class="circular-image" ng-click="openChallenge(user)">
-      <img gravatar-src="user.user_email" gravatar-size="100">
+    <div class="circular-image" ng-click="user.score || openChallenge(user)" ng-disabled="user.score">
+      <img gravatar-src="user.user_email">
     </div>
-    <span>{{user.name}}</span>
+    <span>{{user.name}}</span> <span ng-show="user.score" style="color:yellow">({{user.score}}/{{user.total}})</span>
   </li>
 </ul>

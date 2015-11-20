@@ -1,0 +1,16 @@
+<header class="header">
+  <span class="left"><a href="#/users"><img src="assets/images/users.png" alt=""></a></span>
+  <span>Events</span>
+  <span class="right"><a href="#/invitations"><img src="assets/images/invitations.png"></a></span>
+</header>
+
+<ul>
+  <li ng-repeat="event in events" class="events"
+    ng-click="openEvent(event)">
+    <div class="circular-image">
+      <img ng-src="{{event.icon_url}}">
+    </div>
+    <span style="color: yellow;">{{event.name}}</span><br/>
+    <span style="font-size: 16px;">{{event.description}}</span>...
+  </li>
+</ul>

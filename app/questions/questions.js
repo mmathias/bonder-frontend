@@ -7,16 +7,14 @@ angular.module('myApp.questions', ['ngRoute'])
   });
 }])
 
-.controller('QuestionsController', ['$http', '$scope', function($http, $scope) {
+.controller('QuestionsController', ['$http', '$scope', 'CONFIG', function($http, $scope, CONFIG) {
 
-  var API_URL = 'https://bonderapi.herokuapp.com/api';
-
-  $http.get(API_URL + '/questions').then(function(response) {
+  $http.get(CONFIG.API_URL + '/questions').then(function(response) {
     $scope.questions = response.data.Questions || [];
   });
 
   $scope.updateQuestion = function(question) {
-    $http.put(API_URL + '/questions',
+    $http.put(CONFIG.API_URL + '/questions',
               {
                 id: question.id,
                 question: question.question,
@@ -29,7 +27,7 @@ angular.module('myApp.questions', ['ngRoute'])
   };
 
   $scope.deleteQuestion = function(questionId) {
-    $http.delete(API_URL + '/questions/' + questionId)
+    $http.delete(CONFIG.API_URL + '/questions/' + questionId)
     .then(function(response) {
       for (var i = 0; i < $scope.questions.length; i++) {
         var question = $scope.questions[i];
@@ -42,7 +40,7 @@ angular.module('myApp.questions', ['ngRoute'])
   };
 
   $scope.createQuestion = function(newQuestion) {
-    $http.post(API_URL + '/questions',
+    $http.post(CONFIG.API_URL + '/questions',
                {question: newQuestion.question,
                 firstOption: newQuestion.firstOption,
                 secondOption: newQuestion.secondOption

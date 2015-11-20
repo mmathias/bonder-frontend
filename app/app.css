@@ -73,16 +73,61 @@ input[type="password"] {
   margin: 0 auto 10px;
 }
 
+.events .circular-image {
+  background-color: white;
+  float: left;
+  padding: 5px;
+  box-sizing: border-box;
+  margin-right: 10px;
+  width: 90px;
+  height: 90px;
+}
+
+.events {
+  width: 100%;
+  list-style-type: none;
+  margin: 3px 0;
+  text-align: left;
+}
+
+.events.green {
+  background-color: green;
+}
+
+.events .circular-image img {
+  width: 80px;
+}
+
+.event {
+  font-size: 25px;
+}
+
+.event img {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
 .header {
   background: white;
-  width: 104%;
   margin: -5px -5px 10px;
-  height: 40px;
+  height: 35px;
   opacity: 0.7;
   color: black;
   text-align: center;
   padding: 5px;
   font-size: 25px;
+}
+
+.header img {
+  width: 32px;
+}
+
+.header .left {
+  float: left;
+}
+
+.header .right {
+  float: right;
 }
 
 li {

@@ -7,12 +7,10 @@ angular.module('myApp.frontpage', ['ngRoute'])
   });
 }])
 
-.controller('FrontpageController', ['$http', '$scope', '$location', function($http, $scope, $location) {
-
-  var API_URL = 'https://bonderapi.herokuapp.com/api';
+.controller('FrontpageController', ['$http', '$scope', '$location', 'CONFIG', function($http, $scope, $location, CONFIG) {
 
   $scope.createUser = function(newUser) {
-    $http.post(API_URL + '/users', {email: newUser.user_email, password: newUser.user_password, name: newUser.name})
+    $http.post(CONFIG.API_URL + '/users', {email: newUser.user_email, password: newUser.user_password, name: newUser.name})
     .then(function(response){
       localStorage.user_email = newUser.user_email;
       localStorage.user_id = response.data.userId;
@@ -21,7 +19,7 @@ angular.module('myApp.frontpage', ['ngRoute'])
   };
 
   $scope.loginUser = function(user) {
-    $http.post(API_URL + '/users/login', {email: user.user_email, password: user.user_password})
+    $http.post(CONFIG.API_URL + '/users/login', {email: user.user_email, password: user.user_password})
     .then(function(response) {
       localStorage.user_email = user.user_email;
       localStorage.user_id = response.data.Users[0].user_id;

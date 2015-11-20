@@ -7,11 +7,11 @@ angular.module('myApp.challenge', ['ngRoute'])
   });
 }])
 
-.controller('ChallengeController', ['$http', '$scope', '$q', '$location', function($http, $scope, $q, $location) {
+.controller('ChallengeController', ['$http', '$scope', '$q', '$location', 'CONFIG', function($http, $scope, $q, $location, CONFIG) {
 
-  var API_URL = 'https://bonderapi.herokuapp.com/api', currentIndex = 0;
+  var currentIndex = 0;
 
-  $http.get(API_URL + '/users/' + localStorage.user_id + '/questions?challenged=' + localStorage.challenged_user_id)
+  $http.get(CONFIG.API_URL + '/users/' + localStorage.user_id + '/questions?challenged=' + localStorage.challenged_user_id)
   .then(function(response) {
     $scope.questions = response.data.Questions || [];
 
@@ -21,7 +21,7 @@ angular.module('myApp.challenge', ['ngRoute'])
 
     var requests = [];
     for (var i = 0; i < $scope.questions.length; i++) {
-      requests.push($http.get(API_URL + '/questions/' + $scope.questions[i].id + '/options'));
+      requests.push($http.get(CONFIG.API_URL + '/questions/' + $scope.questions[i].id + '/options'));
     }
 
     return $q.all(requests)
@@ -33,7 +33,7 @@ angular.module('myApp.challenge', ['ngRoute'])
   });
 
   $scope.answer = function(questionId, optionId) {
-    $http.post(API_URL + '/answers',
+    $http.post(CONFIG.API_URL + '/answers',
               {
                 question_id: questionId,
                 user_id: localStorage.user_id,

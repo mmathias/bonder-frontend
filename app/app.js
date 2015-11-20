@@ -7,9 +7,20 @@ angular.module('myApp', [
   'myApp.frontpage',
   'myApp.questions',
   'myApp.challenge',
+  'myApp.events',
+  'myApp.event',
   'myApp.results',
   'myApp.version'
-]).
-config(['$routeProvider', function($routeProvider) {
+])
+.config(['$routeProvider', 'gravatarServiceProvider', function($routeProvider, gravatarServiceProvider) {
   $routeProvider.otherwise({redirectTo: '/frontpage'});
-}]);
+
+  gravatarServiceProvider.defaults = {
+    size: 100,
+    'default': 'mm'
+  }
+
+}])
+.constant("CONFIG", {
+  API_URL: "https://bonderapi.herokuapp.com/api/"
+});
