@@ -1,14 +1,28 @@
 <header class="header">
-  <span class="left"><a href="#/invitations"><img src="assets/images/invitations.png" alt=""></a></span>
+  <span class="left"><a href="#/profile"><img src="assets/images/profile.png" alt=""></a></span>
   <span>Users</span>
   <span class="right"><a href="#/events"><img src="assets/images/events.png" width="48px"></a></span>
 </header>
 
-<ul>
-  <li ng-repeat="user in users">
-    <div class="circular-image" ng-click="user.score || openChallenge(user)" ng-disabled="user.score">
-      <img gravatar-src="user.user_email">
-    </div>
-    <span>{{user.name}}</span> <span ng-show="user.score" style="color:yellow">({{user.score}}/{{user.total}})</span>
-  </li>
-</ul>
+<div class="users">
+  <div class="description">How much do you know your friends? Challenge them to find out!</div>
+
+  <ul class="clearfix">
+    <li ng-repeat="user in users">
+      <div class="circular-image" ng-click="user.score || openChallenge(user)" ng-disabled="user.score">
+        <img gravatar-src="user.user_email">
+      </div>
+      <span>{{user.name}}</span> <span ng-show="user.score" style="color:yellow">({{user.score}}/{{user.total}})</span>
+    </li>
+  </ul>
+
+  <div class="invite-user" class="animate-show" ng-show="invite">
+      <center>Invite</center>
+      <input type="email" placeholder="Email Address" ng-model="newUser.user_email"></br>
+      <button class="secondary-button" ng-click="inviteUser(newUser)">Invite</button>
+  </div>
+
+  <button class="option full" ng-click="invite = true">Are we missing anyone? Click here.</button>
+
+  <div class="background-shadown" ng-show="invite"></div>
+</div>

@@ -1,0 +1,28 @@
+<header class="header">
+  <span class="right"><a href="#/events"><img src="assets/images/events.png"></a></span>
+  <span>Profile</span>
+  <span class="left"><a href="#/users"><img src="assets/images/users.png" alt=""></a></span>
+</header>
+
+<div class="profile">
+  <div class="circular-image">
+    <img gravatar-src="user.user_email" gravatar-size="150">
+  </div>
+
+  <label>Name:</label>
+  <span ng-show="!user.edittingUser">{{user.name}}</span>
+  <input type="text" ng-model="user.name" ng-show="user.edittingUser"/>
+
+  <br/> <br/>
+
+  <label>Password:</label>
+  <span ng-show="!user.edittingUser">**************</span>
+  <input type="password" ng-model="user.user_password" ng-show="user.edittingUser"/>
+
+  <br/> <br/>
+  <div class="options">
+    <button class="option" ng-click="updateUser(user)" ng-show="user.edittingUser">CONFIRM</button>
+    <button class="option" ng-click="user.edittingUser = false" ng-show="user.edittingUser">CANCEL</button>
+    <button class="option full" ng-click="user.edittingUser = true" ng-show="!user.edittingUser">EDIT</button>
+  </div>
+</div>

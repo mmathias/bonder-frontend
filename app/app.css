@@ -35,7 +35,7 @@ html, body {
   bottom: 67px;
 }
 
-.login-user, .create-user {
+.login-user, .create-user, .invite-user {
   background-color: white;
   padding: 10px 5px;
   position: absolute;
@@ -46,7 +46,13 @@ html, body {
   box-sizing: border-box;
 }
 
+.invite-user {
+  width: 97%;
+  position: fixed;
+}
+
 input[type="text"],
+input[type="email"],
 input[type="password"] {
   width: 100%;
   padding: 10px 0;
@@ -70,7 +76,7 @@ input[type="password"] {
   width: 100px;
   height: 100px;
   overflow: hidden;
-  margin: 0 auto 10px;
+  margin: 0 auto;
 }
 
 .events .circular-image {
@@ -134,8 +140,8 @@ li {
   width: 50%;
   float: left;
   text-align: center;
-  margin: 0 auto;
-  font-size: 20px;
+  margin: 0 auto 10px;
+  font-size: 15px;
   color: white;
 }
 
@@ -158,6 +164,7 @@ li {
   float: left;
   padding: 21px 5px;
   word-wrap: break-word;
+  border: 0;
 }
 
 .option:first-child {
@@ -183,4 +190,59 @@ li {
 
 .logo {
   width: 80%;
+}
+
+.description {
+  text-align: center;
+  color: white;
+  padding: 10px;
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+}
+
+.notification {
+  background-color: yellow;
+  color: black;
+  padding: 5px;
+  margin-bottom: 15px;
+}
+
+.profile .circular-image {
+  margin: 15px auto;
+  width: 150px;
+  height: 150px;
+}
+
+.profile {
+  color: white;
+  font-size: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  color: black;
+}
+
+.profile .option {
+  font-size: 27px;
+  width: 48%;
+}
+
+.option.full {
+  width: 100%;
+}
+
+.users .option {
+  color: white;
+  margin: 10px 0;
+  float: none;
+}
+
+.background-shadown {
+  background-color: black;
+  position: fixed;
+  height: 150%;
+  opacity: 0.8;
+  width: 100%;
+  top: 0;
 }

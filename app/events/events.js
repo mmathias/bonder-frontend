@@ -22,5 +22,8 @@ angular.module('myApp.events', ['ngRoute', 'ui.gravatar'])
     $location.url("/event");
   }
 
+  $scope.openNotifications = function() {
+    $location.url("/invitations");
+  }
 }]);
 

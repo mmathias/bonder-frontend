@@ -11,6 +11,7 @@ angular.module('myApp', [
   'myApp.event',
   'myApp.invitations',
   'myApp.invitation',
+  'myApp.profile',
   'myApp.results',
   'myApp.version'
 ])
