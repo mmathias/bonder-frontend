@@ -9,6 +9,8 @@ angular.module('myApp', [
   'myApp.challenge',
   'myApp.events',
   'myApp.event',
+  'myApp.invitations',
+  'myApp.invitation',
   'myApp.results',
   'myApp.version'
 ])

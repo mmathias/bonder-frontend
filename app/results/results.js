@@ -21,7 +21,7 @@ angular.module('myApp.results', ['ngRoute'])
       });
     }
   }).then(function() {
-    $http.get(CONFIG.API_URL + '/users/' + localStorage.user_id + '/questions?challenged=' + localStorage.challenged_user_id)
+    $http.get(CONFIG.API_URL + '/users/' + localStorage.user_id + '/questions?challenged=null')
     .then(function(response) {
       if (response.data.Questions && response.data.Questions.length) {
         $scope.openQuestionsAboutYou = true;
