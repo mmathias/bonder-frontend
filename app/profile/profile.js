@@ -14,7 +14,6 @@ angular.module('myApp.profile', ['ngRoute'])
   });
 
   $scope.updateUser = function(user) {
-    debugger;
     $http.put(CONFIG.API_URL + '/users',
               {
                 name: user.name,
