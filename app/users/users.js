@@ -33,16 +33,20 @@ angular.module('myApp.users', ['ngRoute', 'ui.gravatar'])
 
     return $q.all(requests)
       .then(function(responses) {
+        var reqs = [], response;
         for (var i = 0; i < responses.length; i++) {
-          var response = responses[i];
+          response = responses[i]
           if (response.data.Answers && response.data.Answers.length) {
             $scope.users[i].total = response.data.Answers.length;
-            return $http.get(CONFIG.API_URL + 'users/' + localStorage.user_id + '/score/' + $scope.users[i].user_id)
-            .then(function(response) {
-              $scope.users[i].score = response.data.Score[0].score;
-            });
+            reqs.push($http.get(CONFIG.API_URL + 'users/' + localStorage.user_id + '/score/' + $scope.users[i].user_id));
           }
         }
+
+        $q.all(reqs).then(function(responses) {
+          for(var i = 0; i<responses.length; i++) {
+            $scope.users[i].score = responses[i].data.Score[0].score;
+          }
+        });
       });
   });
 
